@@ -1,0 +1,24 @@
+{
+  "name": "devicecareapi",
+  "version": "1.0.0",
+  "description": "API for handling device administration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Max Nessen",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.7",
+    "morgan": "^1.9.1",
+    "nodemailer": "^4.6.8",
+    "nodemon": "^1.18.5",
+    "qrcode": "^1.3.0"
+  }
+}

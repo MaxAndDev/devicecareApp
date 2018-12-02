@@ -6,6 +6,7 @@ const deviceSchema = mongoose.Schema({
     producer: {type: String, required: true},
     owner: {type: String, required: true},
     status: {type: String, required: true},
+    accessories: {type: Array, required: true},
     timestamp: {type: String, required: true},
     count: {type: Number, default: 1}
 });

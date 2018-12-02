@@ -35,6 +35,7 @@ router.post('/', checkAuth , (req, res, next) => {
         producer: req.body.producer,
         owner: req.body.owner,
         status: req.body.status,
+        accessories: req.body.accessories,        
         timestamp: new Date()
     });
     device.save().then(result => {

@@ -26,7 +26,8 @@ router.post('/signup' , (req, res, next) => {
                         email: req.body.email,
                         password: hash,
                         company: req.body.company,
-                        name: req.body.name
+                        name: req.body.name,
+                        admin: req.body.admin
             });
             user.save().then( result => {
                     console.log(result);
@@ -74,8 +75,9 @@ router.post('/login', (req, res, next) => {
             );
                 return res.status(200).json({
                     message: 'Auth successful',
-                    token: token
-                })
+                    token: token,
+                    admin: users[0].admin,
+                });  
             }
             res.status(401).json({
                 message: 'Auth failed'

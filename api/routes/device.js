@@ -78,7 +78,7 @@ router.patch('/:deviceId', checkAuth, (req, res, next) => {
     const loaner = req.body.loaner;
     const missing = req.body.missing;
     const scratches = req.body.scratches;
-    Device.updateOne({ _id: id }, { $set: { status: req.body.status, timestamp: new Date() },  $push: { history: { loaner: loaner, missing: missing, scratches: scratches } } })
+    Device.updateOne({ _id: id }, { $set: { status: req.body.status, timestamp: new Date() }, $push: { history: { loaner: loaner, missing: { headphones: missing.headphones, cable: missing.cable, adapter: missing.adapter }, scratches: scratches } } })
         .exec()
         .then(result => {
             res.status(200).json(result)

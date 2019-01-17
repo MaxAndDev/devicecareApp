@@ -8,7 +8,12 @@ const deviceSchema = mongoose.Schema({
     status: {type: String, required: true},
     accessories: {type: Array, required: true},
     timestamp: {type: String, required: true},
-    count: {type: Number, default: 1}
+    count: {type: Number, default: 1},
+    history: {
+        loaner: {type: String},
+        missing: {type: String},
+        scratches: {type: Boolean}
+    }
 });
 
 module.exports = mongoose.model('Device', deviceSchema);

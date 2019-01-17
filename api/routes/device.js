@@ -75,10 +75,10 @@ router.get('/:deviceId', checkAuth, (req, res, next) => {
 //PATCH by ID
 router.patch('/:deviceId', checkAuth, (req, res, next) => {
     const id = req.params.deviceId;
-    const loaner = req.params.loaner;
-    const missing = req.params.missing;
-    const scratches = req.params.scratches;
-    Device.updateOne({ _id: id }, { $set: { status: req.body.status, timestamp: new Date() } })
+    const loaner = req.body.loaner;
+    const missing = req.body.missing;
+    const scratches = req.body.scratches;
+    Device.updateOne({ _id: id }, { $set: { status: req.body.status, timestamp: new Date() },  $push: { history: { loaner: loaner, missing: missing, scratches: scratches } } })
         .exec()
         .then(result => {
             res.status(200).json(result)
